@@ -7,29 +7,29 @@ export const metadata = { title: "Courses" };
 
 export default function CoursesPage() {
   return (
-    <section className="section py-16 md:py-20">
+    <section className="section py-12 sm:py-16 md:py-20">
       <div className="text-center">
         <Eyebrow>OUR COURSES</Eyebrow>
-        <h1 className="mt-2 font-heading text-4xl font-bold text-navy sm:text-5xl">
+        <h1 className="mt-2 font-heading text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl">
           Big Dreams <span className="text-teal">Begin Here</span>
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-navy/70">
+        <p className="mx-auto mt-4 max-w-xl text-sm text-navy/70 sm:text-base">
           Structured, syllabus-aligned coaching for NEET (UG) and MHT-CET (PCB), built
           around the official board and NCERT curriculum.
         </p>
       </div>
 
-      <div className="mt-14 space-y-16">
+      <div className="mt-10 space-y-10 sm:mt-14 sm:space-y-16">
         {courses.map((course) => (
           <div key={course.id} className="card overflow-hidden">
-            <div className="grid gap-8 p-6 md:p-10 lg:grid-cols-[1.4fr_0.9fr]">
-              <div>
-                <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-soft text-teal">
-                    <BookOpen className="h-6 w-6" />
+            <div className="grid grid-cols-1 gap-8 p-5 sm:p-6 md:p-10 lg:grid-cols-[1.4fr_0.9fr]">
+              <div className="min-w-0">
+                <div className="flex items-start gap-3 sm:items-center">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal sm:h-12 sm:w-12">
+                    <BookOpen className="h-5 w-5 sm:h-6 sm:w-6" />
                   </span>
                   <div>
-                    <h2 className="font-heading text-2xl font-bold text-navy">
+                    <h2 className="font-heading text-xl font-bold leading-tight text-navy sm:text-2xl">
                       {course.name}
                     </h2>
                     <p className="text-xs font-semibold text-teal">{course.fullName}</p>
@@ -38,59 +38,79 @@ export default function CoursesPage() {
                 <p className="mt-2 text-sm font-medium italic text-navy/60">
                   {course.tagline}
                 </p>
-                <p className="mt-4 text-navy/70">{course.description}</p>
+                <p className="mt-4 text-sm text-navy/70 sm:text-base">{course.description}</p>
 
-                <h3 className="mt-8 text-sm font-bold uppercase tracking-wide text-navy">
+                <h3 className="mt-6 text-xs font-bold uppercase tracking-wide text-navy sm:mt-8 sm:text-sm">
                   {course.name} Paper Pattern
                 </h3>
-                <div className="mt-3 overflow-x-auto rounded-xl border border-black/5">
-                  <table className="w-full text-left text-sm">
+                <div className="mt-3 w-full overflow-x-auto rounded-xl border border-black/5">
+                  <table className="w-full min-w-[480px] text-left text-sm">
                     <thead className="bg-teal-soft/70 text-navy">
                       <tr>
-                        <th className="px-4 py-3 font-semibold">Subject</th>
-                        <th className="px-4 py-3 font-semibold">No. of Questions</th>
-                        <th className="px-4 py-3 font-semibold">Marks / Question</th>
-                        <th className="px-4 py-3 font-semibold">Total Marks</th>
+                        <th className="whitespace-nowrap px-4 py-3 font-semibold">Subject</th>
+                        <th className="whitespace-nowrap px-4 py-3 font-semibold">
+                          No. of Questions
+                        </th>
+                        <th className="whitespace-nowrap px-4 py-3 font-semibold">
+                          Marks / Question
+                        </th>
+                        <th className="whitespace-nowrap px-4 py-3 font-semibold">
+                          Total Marks
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       {course.pattern.map((row) => (
                         <tr key={row.subject} className="border-t border-black/5">
-                          <td className="px-4 py-3 text-navy/80">{row.subject}</td>
-                          <td className="px-4 py-3 text-navy/80">{row.questions}</td>
-                          <td className="px-4 py-3 text-navy/80">{row.marksEach}</td>
-                          <td className="px-4 py-3 text-navy/80">{row.total}</td>
+                          <td className="whitespace-nowrap px-4 py-3 text-navy/80">
+                            {row.subject}
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-3 text-navy/80">
+                            {row.questions}
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-3 text-navy/80">
+                            {row.marksEach}
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-3 text-navy/80">
+                            {row.total}
+                          </td>
                         </tr>
                       ))}
                       <tr className="border-t border-black/5 bg-teal-soft/40 font-bold text-navy">
-                        <td className="px-4 py-3">Total</td>
-                        <td className="px-4 py-3">{course.patternTotal.questions}</td>
-                        <td className="px-4 py-3">—</td>
-                        <td className="px-4 py-3">{course.patternTotal.total}</td>
+                        <td className="whitespace-nowrap px-4 py-3">Total</td>
+                        <td className="whitespace-nowrap px-4 py-3">
+                          {course.patternTotal.questions}
+                        </td>
+                        <td className="whitespace-nowrap px-4 py-3">—</td>
+                        <td className="whitespace-nowrap px-4 py-3">
+                          {course.patternTotal.total}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
-                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-4 sm:gap-4">
                   {course.patternBadges.map((h) => {
                     const Icon = Icons[h.icon];
                     return (
                       <div key={h.label} className="flex flex-col items-center gap-2 text-center">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-soft text-teal">
-                          <Icon className="h-5 w-5" />
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-soft text-teal sm:h-11 sm:w-11">
+                          <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                         </span>
-                        <span className="text-sm font-bold text-navy">{h.value}</span>
-                        <span className="text-xs font-medium text-navy/60">{h.label}</span>
+                        <span className="text-xs font-bold text-navy sm:text-sm">{h.value}</span>
+                        <span className="text-[11px] font-medium text-navy/60 sm:text-xs">
+                          {h.label}
+                        </span>
                       </div>
                     );
                   })}
                 </div>
               </div>
 
-              <div>
-                <div className="card border-teal/20 bg-teal-soft/40 p-5">
-                  <h3 className="text-sm font-bold uppercase tracking-wide text-teal">
+              <div className="min-w-0">
+                <div className="card border-teal/20 bg-teal-soft/40 p-4 sm:p-5">
+                  <h3 className="text-xs font-bold uppercase tracking-wide text-teal sm:text-sm">
                     Why Choose {course.name}?
                   </h3>
                   <ul className="mt-4 space-y-3">
@@ -104,15 +124,18 @@ export default function CoursesPage() {
                 </div>
 
                 <div className="mt-6">
-                  <h3 className="text-sm font-bold uppercase tracking-wide text-navy">
+                  <h3 className="text-xs font-bold uppercase tracking-wide text-navy sm:text-sm">
                     Download {course.id === "neet" ? "NCERT" : "HSC"} Textbooks
                   </h3>
                   <p className="mt-1 text-xs text-navy/55">
                     Build your basics with the official textbooks.
                   </p>
-                  <div className="mt-4 grid grid-cols-3 gap-3">
+                  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                     {course.textbooks.map((book) => (
-                      <div key={book.subject} className="card flex flex-col items-center gap-2 p-3 text-center">
+                      <div
+                        key={book.subject}
+                        className="card flex flex-col items-center gap-2 p-3 text-center"
+                      >
                         <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-soft text-teal">
                           <BookOpen className="h-4 w-4" />
                         </span>
@@ -130,11 +153,11 @@ export default function CoursesPage() {
                 </div>
 
                 <div className="mt-6">
-                  <h3 className="text-sm font-bold uppercase tracking-wide text-navy">
+                  <h3 className="text-xs font-bold uppercase tracking-wide text-navy sm:text-sm">
                     {course.cutoff.title}
                   </h3>
                   <p className="mt-1 text-xs text-navy/55">{course.cutoff.subtitle}</p>
-                  <div className="mt-4 grid grid-cols-3 gap-3">
+                  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                     {course.cutoff.years.map((y) => (
                       <div
                         key={y.label}

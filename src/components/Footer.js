@@ -76,7 +76,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2.5 text-sm text-white/65">
             <li>NEET (UG) Coaching</li>
             <li>MHT-CET (PCB) Coaching</li>
-            <li>PT-SAT Test Series</li>
+            <li>PT-SAT (Scholarship Test)</li>
             <li>Career Guidance Sessions</li>
           </ul>
         </div>

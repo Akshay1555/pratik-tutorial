@@ -7,7 +7,7 @@ const heroFeatures = [
   { icon: Users, label: "Small Batches" },
   { icon: Target, label: "Focused PCB Environment" },
   { icon: BookOpen, label: "NCERT-Centric Learning" },
-  { icon: GraduationCap, label: "IITians & Doctor Faculty" },
+  { icon: GraduationCap, label: "Doctors & IITian Faculties" },
 ];
 
 const careerPaths = [
